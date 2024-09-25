@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laptop Sales - Ram Infotech</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        header {
+            background-color: rgba(13, 141, 192, 0.7);
+            color: white;
+            text-align: center;
+            padding: 1em 0;
+            position: relative;
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            text-align: center;
+        }
+        .product img {
+            width: 280px;
+            height: 200px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            margin: 0 auto;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h2 {
+            font-size: 1.2em;
+        }
+        .rating {
+            margin: 10px 0;
+            color: orange;
+        }
+        .rating span {
+            color: black;
+        }
+        .price, .discount {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .discount span {
+            text-decoration: line-through;
+            color: red;
+        }
+        .button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 4px;
+        }
+        .button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: rgba(13, 141, 192, 0.7);
+            color: black;
+            text-align: center;
+            padding: 1em 0;
+        }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html">
+        <img src="logo.png" alt="Ram Infotech Logo" class="logo">
+    </a>
+    <h1>Ram Infotech Laptop Store</h1>
+</header>
+
+<main class="product-list" id="product-list">
+    <!-- Dynamic product list will be generated here -->
+</main>
+
+<footer class="footer">
+    <p>&copy; 2024 Ram Infotech. All rights reserved.</p>
+</footer>
+
+<script>
+    const products = [
+        // Lenovo Laptops
+        {brand: "Lenovo", name: "Lenovo IdeaPad Slim 3", price: 45000, discount: 40000, rating: 4.2, processor: "Intel Core i5", ram: "8GB", storage: "512GB SSD", img: "lenovo-ideapad.jpg"},
+        {brand: "Lenovo", name: "Lenovo Legion 5", price: 90000, discount: 75000, rating: 4.5, processor: "AMD Ryzen 7", ram: "16GB", storage: "1TB SSD", img: "lenovo-legion.jpg"},
+        {brand: "Lenovo", name: "Lenovo ThinkPad X1", price: 150000, discount: 135000, rating: 4.7, processor: "Intel Core i7", ram: "16GB", storage: "512GB SSD", img: "Lenovo ThinkPad X1.png"},
+        {brand: "Lenovo", name: "Lenovo Yoga 7i", price: 100000, discount: 88000, rating: 4.6, processor: "Intel Core i7", ram: "16GB", storage: "1TB SSD", img: "lenovo-yoga.jpg"},
+        {brand: "Lenovo", name: "Lenovo Flex 5", price: 60000, discount: 54000, rating: 4.4, processor: "AMD Ryzen 5", ram: "8GB", storage: "512GB SSD", img: "lenovo-flex.jpg"},
+
+        // Asus Laptops
+        {brand: "Asus", name: "Asus ROG Zephyrus G14", price: 140000, discount: 125000, rating: 4.8, processor: "AMD Ryzen 9", ram: "32GB", storage: "1TB SSD", img: "asus-rog-zephyrus.jpg"},
+        {brand: "Asus", name: "Asus VivoBook 15", price: 50000, discount: 45000, rating: 4.3, processor: "Intel Core i3", ram: "8GB", storage: "512GB SSD", img: "asus-vivobook.jpg"},
+        {brand: "Asus", name: "Asus ZenBook 14", price: 85000, discount: 78000, rating: 4.6, processor: "Intel Core i5", ram: "16GB", storage: "512GB SSD", img: "asus-zenbook.jpg"},
+        {brand: "Asus", name: "Asus TUF Gaming A15", price: 105000, discount: 95000, rating: 4.4, processor: "AMD Ryzen 7", ram: "16GB", storage: "1TB SSD", img: "asus-tuf.jpg"},
+        {brand: "Asus", name: "Asus ROG Strix G17", price: 160000, discount: 140000, rating: 4.7, processor: "Intel Core i7", ram: "32GB", storage: "1TB SSD", img: "asus-rog-strix.jpg"},
+
+        // Redmi Laptops
+        {brand: "Redmi", name: " RedmiBook 15 Pro", price: 55000, discount: 50000, rating: 4.2, processor: "Intel Core i5", ram: "8GB", storage: "512GB SSD", img: "redmibook-pro.jpg"},
+        {brand: "Redmi", name: "RedmiBook e-Learning Edition", price: 40000, discount: 36000, rating: 4.1, processor: "Intel Core i3", ram: "8GB", storage: "256GB SSD", img: "redmibook-learning.jpg"},
+        {brand: "Redmi", name: "RedmiBook Ultra", price: 60000, discount: 54000, rating: 4.3, processor: "AMD Ryzen 5", ram: "8GB", storage: "512GB SSD", img: "redmibook-ultra.jpg"},
+        {brand: "Redmi", name: "RedmiBook Air", price: 70000, discount: 63000, rating: 4.5, processor: "Intel Core i5", ram: "8GB", storage: "512GB SSD", img: "redmibook-air.jpg"},
+        {brand: "Redmi", name: "Redmi G Gaming Laptop", price: 80000, discount: 72000, rating: 4.4, processor: "Intel Core i7", ram: "16GB", storage: "1TB SSD", img: "redmi-g-gaming.jpg"},
+
+        // HP Laptops
+        {brand: "HP", name: "HP Pavilion Gaming 15", price: 65000, discount: 59000, rating: 4.4, processor: "AMD Ryzen 5", ram: "8GB", storage: "512GB SSD", img: "hp-pavilion-gaming.jpg"},
+        {brand: "HP", name: "HP Envy x360", price: 80000, discount: 72000, rating: 4.5, processor: "AMD Ryzen 7", ram: "16GB", storage: "1TB SSD", img: "hp-envy-x360.jpg"},
+        {brand: "HP", name: "HP Omen 15", price: 90000, discount: 82000, rating: 4.6, processor: "Intel Core i7", ram: "16GB", storage: "1TB SSD", img: "hp-omen-15.jpg"},
+        {brand: "HP", name: "HP ProBook 440", price: 50000, discount: 45000, rating: 4.3, processor: "Intel Core i3", ram: "8GB", storage: "256GB SSD", img: "hp-probook-440.jpg"},
+        {brand: "HP", name: "HP ZBook 15", price: 120000, discount: 110000, rating: 4.7, processor: "Intel Core i9", ram: "32GB", storage: "1TB SSD", img: "hp-zbook-15.jpg"},
+
+        // Samsung Laptops
+        {brand: "Samsung", name: "Samsung Notebook 9", price: 70000, discount: 63000, rating: 4.5, processor: "Intel Core i5", ram: "8GB", storage: "512GB SSD", img: "samsung-notebook-9.jpg"},
+        {brand: "Samsung", name: "Samsung Notebook Flex", price: 60000, discount: 54000, rating: 4.4, processor: "AMD Ryzen 5", ram: "8GB", storage: "512GB SSD", img: "samsung-notebook-flex.jpg"},
+        {brand: "Samsung", name: "Samsung Notebook Flash", price: 50000, discount: 45000, rating: 4.3, processor: "Intel Core i3", ram: "8GB", storage: "256GB SSD", img: "samsung-notebook-flash.jpg"},
+        {brand: "Samsung", name: "Samsung Odyssey Z", price: 90000, discount: 82000, rating: 4.6, processor: "Intel Core i7", ram: "16GB", storage: "1TB SSD", img: "samsung-odyssey-z.jpg"},
+        {brand: "Samsung", name: "Samsung Notebook Plus", price: 80000, discount: 72000, rating: 4.5, processor: "AMD Ryzen 7", ram: "16GB", storage: "1TB SSD", img: "samsung-notebook-plus.jpg"},
+
+        // ROG Laptops
+        {brand: "ROG", name: "ROG Zephyrus Duo 15", price: 180000, discount: 160000, rating: 4.8, processor: "Intel Core i9", ram: "32GB", storage: "1TB SSD", img: "rog-zephyrus-duo.jpg"},
+        {brand: "ROG", name: "ROG Strix SCAR 15", price: 140000, discount: 125000, rating: 4.7, processor: "AMD Ryzen 9", ram: "16GB", storage: "1TB SSD", img: "rog-strix-scar.jpg"},
+        {brand: "ROG", name: "ROG Zephyrus G14", price: 120000, discount: 105000, rating: 4.6, processor: "AMD Ryzen 7", ram: "16GB", storage: "512GB SSD", img: "rog-zephyrus-g14.jpg"},
+        {brand: "ROG", name: "ROG Strix G17", price: 160000, discount: 140000, rating: 4.7, processor: "Intel Core i7", ram: "16GB", storage: "1TB SSD", img: "rog-strix-g17.jpg"},
+        {brand: "ROG", name: "ROG Flow X13", price: 100000, discount: 90000, rating: 4.5, processor: "AMD Ryzen 5", ram: "8GB", storage: "512GB SSD", img: "rog-flow-x13.jpg"}
+    ];
+
+    const generateStars = (rating) => {
+        const fullStars = Math.floor(rating);
+        const halfStar = rating % 1 >= 0.5 ? 1 : 0;
+        const emptyStars = 5 - fullStars - halfStar;
+        return '★'.repeat(fullStars) + (halfStar ? '★' : '') + '☆'.repeat(emptyStars);
+    };
+
+    const productList = document.getElementById('product-list');
+    products.forEach(product => {
+        const productHTML = `
+            <div class="product">
+                <img src="${product.img}" alt="${product.name}">
+                <div class="product-info">
+                    <h2>${product.name}</h2>
+                    <p><strong>Processor:</strong> ${product.processor}</p>
+                    <p><strong>RAM:</strong> ${product.ram}</p>
+                    <p><strong>Storage:</strong> ${product.storage}</p>
+                    <div class="rating">
+                        ${generateStars(product.rating)} (${product.rating} / 5)
+                    </div>
+                    <div class="price">Discounted Price: ₹${product.discount.toLocaleString()}</div>
+                    <div class="discount">Original Price: <span>₹${product.price.toLocaleString()}</span></div>
+                    <button class="button" onclick="redirectToPayment('${product.name}', '${product.discount}', '${product.img}')">Buy Now</button>
+                </div>
+            </div>
+        `;
+        productList.innerHTML += productHTML;
+    });
+
+    function redirectToPayment(name, price, img) {
+        // Redirect to payment.php with query parameters
+        const url = `payment.php?product_name=${encodeURIComponent(name)}&product_price=${encodeURIComponent(price)}&product_img=${encodeURIComponent(img)}`;
+        window.location.href = url;
+    }
+</script>
+
+</body>
+</html>

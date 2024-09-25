@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Information - Ram Infotech</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Customer Information</h1>
+    </header>
+
+    <main>
+        <form action="customer_info.php" method="POST">
+            <label for="customer_name">Customer Name:</label>
+            <input type="text" id="customer_name" name="customer_name" required>
+
+            <label for="info_type">View:</label>
+            <select id="info_type" name="info_type">
+                <option value="purchase">Purchase History</option>
+                <option value="service">Service History</option>
+            </select>
+
+            <button type="submit">View Info</button>
+        </form>
+
+        <div id="customer_info">
+            <!-- Customer information will be displayed here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Ram Infotech</p>
+    </footer>
+</body>
+</html>

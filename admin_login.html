@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ram Infotech - Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqk1w2/knoG80kXw/8kgX29gaNFwLZTl+YNj/FGH+dJH+aGpFu0sFGxk8Up5+gK/fcp8pW3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center; /* Centers the login form horizontally */
+            align-items: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+            position: relative;
+        }
+
+        .login-form {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            position: relative;
+            top: 100px; /* Distance from the top */
+            left: 250px; /* Centers the form horizontally */
+            transform: translateX(-50%);
+            margin-left: 0; /* Removed margin-left to center the form */
+        }
+
+        .login-form h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-form">
+        <h2>Admin Login</h2>
+        <form action="admin_login.php" method="post">
+            <label for="username"></label>
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <br>
+            <label for="password"></label>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <br>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+</body>
+</html>
